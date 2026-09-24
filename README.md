@@ -10,14 +10,14 @@ Analysis demonstrated that areas of high profit, determine by revenue to profit 
 Regarding profit based on location, through visual analysis of the high profit categories, it was determined that profit-margin fluctuated greatly across cities. In contrast, total profit grouped into two main clusters ($1K-$4K and $5K-$14K); the same is true regarding total revenue generated.  In this dataset margin acts more as a  fixed constant rather than dominant driver of profit. There is not enough in the dataset to determine the true cause of fluctuation in profit-margin and revenue by city appears to be a driver of profit, however the dataset does not allow for further investigation into this.  
 
 ## Methodology: 
-1.Cleaned raw CSV in pandas (handled nulls, converted unit_price from string to float)
+1. Cleaned raw CSV in pandas — handled nulls, converted `unit_price` from string to float
 2. Loaded cleaned data into MySQL via SQLAlchemy
-3. Queried category-level revenue, profit, and margin (SQL) — identified Home & lifestyle and Fashion accessories as the two highest-revenue categories
-4. Found profit_margin is non-continuous (only 6 discrete values) rather than a smooth calculated field
-5. Broke down each category's transactions by margin tier — found the category-level margin gap is driven by product mix (i.e., what % of a category's sales fall in the higher vs. lower tier), not a uniform per-category rate
-6. Tested and ruled out confounding explanations for city-level margin variation: unit price (no relationship), transaction volume/sample size (low-margin cities weren't low-volume), and customer rating (no relationship)
-7. Compared total profit by city against revenue/transaction volume — found profit closely tracks volume, since margin's variation is small relative to revenue's much larger swings across cities
-8. Concluded profit margin is likely an artifact of how the dataset was synthetically generated (fixed discrete tiers, no correlation to any other variable tested) — findings demonstrate analytical methodology (hypothesis testing, disaggregation, ruling out confounders) applicable to real transactional data
+3. Queried category-level revenue, profit, and margin (SQL) — identified Home & Lifestyle and Fashion Accessories as the two highest-revenue categories
+4. Found `profit_margin` is non-continuous (only 6 discrete values), not a smoothly calculated field
+5. Broke down each category's transactions by margin tier — found the category-level margin gap is driven by product mix, not a uniform per-category rate
+6. Tested and ruled out confounding explanations for city-level margin variation: unit price, transaction volume/sample size, and customer rating
+7. Compared total profit by city against revenue/transaction volume — found profit closely tracks volume, since margin's variation is small relative to revenue's larger swings
+8. Concluded profit margin is likely an artifact of how the dataset was synthetically generated — findings demonstrate the analytical methodology rather than real-world business conclusions
 
 ## Sample Query: 
 
