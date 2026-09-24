@@ -21,6 +21,7 @@ Regarding profit based on location, through visual analysis of the high profit c
 
 ## Sample Query: 
 
+```sql
 SELECT 
     category,
     SUM(unit_price * quantity) AS total_revenue,
@@ -34,6 +35,7 @@ SELECT
 FROM walmart
 GROUP BY category
 ORDER BY pct_of_total_profit DESC;
+```
 
 ## Visualization: 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/97fd6611-f038-43a6-97bb-c3c897004c50" />
